@@ -1,0 +1,9 @@
+Step 1: Start
+Step 2: Input three test marks: M1, M2, M3
+Step 3: Calculate the average: Avg = (M1 + M2 + M3) / 3
+Step 4: Check if Avg ≥ 75
+If Yes, print Avg, then go to Step 7
+If No, go to Step 5
+Step 5: Reassessment Required
+Step 6: Input new marks (M1, M2, M3) and repeat from Step 3
+Step 7: End

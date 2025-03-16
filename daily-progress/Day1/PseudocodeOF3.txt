@@ -1,0 +1,17 @@
+BEGIN  
+    INPUT M1, M2, M3  
+    Avg ← (M1 + M2 + M3) / 3  
+    IF Avg ≥ 75 THEN  
+        PRINT "Average:", Avg  
+    ELSE  
+        PRINT "Fail – Reassessment Required"  
+        INPUT M1, M2, M3  
+        Avg ← (M1 + M2 + M3) / 3  
+
+        IF Avg ≥ 75 THEN  
+            PRINT "Average:", Avg  
+        ELSE  
+            PRINT "Fail – Reassessment Required"   
+        ENDIF  
+    ENDIF  
+ END

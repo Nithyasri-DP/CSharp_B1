@@ -1,0 +1,10 @@
+1. Start
+2. Initialize the list of elements
+3. Let N be the length of the list
+4. Let i be the index, starting from 1
+5. For each element at index i, compare it with the previous elements (from index 0 to i-1)
+6. Shift the previous elements to the right until a smaller element is found
+7. Insert the current element (at index i) into the correct position
+8. Increment i and repeat steps 5-7 until i reaches N
+9. Print the sorted list
+10. Stop
