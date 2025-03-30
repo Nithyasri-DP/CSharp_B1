@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 namespace FirstCore_Console
 {
     internal class Program
@@ -28,3 +28,6 @@ namespace FirstCore_Console
 
     }
 }
+*/
+
+

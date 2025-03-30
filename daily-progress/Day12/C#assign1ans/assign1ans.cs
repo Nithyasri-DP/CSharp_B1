@@ -6,10 +6,10 @@ namespace ClsAssignment
     {
         static void Main()
         {
-            //ComparingNum();
-            //IntSign();
-            //ArithmeticOp();
-            //MultiplicationTable();
+            ComparingNum();
+            IntSign();
+            ArithmeticOp();
+            MultiplicationTable();
             Sumoftwo();
         }
 
