@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|d:\\csharpb1_hexaware\\daily-progress\\day15\\assignmentsolutions\\assignmentsolutions\\stringfun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|solutionrelative:assignmentsolutions\\stringfun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|d:\\csharpb1_hexaware\\daily-progress\\day15\\assignmentsolutions\\assignmentsolutions\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|solutionrelative:assignmentsolutions\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Student.cs",
+              "DocumentMoniker": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Student.cs",
+              "RelativeDocumentMoniker": "AssignmentSolutions\\Student.cs",
+              "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Student.cs",
+              "RelativeToolTip": "AssignmentSolutions\\Student.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T02:08:23.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Stringfun.cs",
+              "DocumentMoniker": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Stringfun.cs",
+              "RelativeDocumentMoniker": "AssignmentSolutions\\Stringfun.cs",
+              "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Stringfun.cs*",
+              "RelativeToolTip": "AssignmentSolutions\\Stringfun.cs*",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAzwCIAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-02T01:57:58.46Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
