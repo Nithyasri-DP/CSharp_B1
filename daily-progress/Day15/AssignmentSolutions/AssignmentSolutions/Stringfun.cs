@@ -32,8 +32,10 @@ namespace AssignmentSolutions
     {
         public static void Main()
         {
-           // Stringfunction.stringfunc(); // Calling main class program(string)
+            Stringfunction.stringfunc(); // Calling main class program(string)
             StudentInherit.StudResult(); // Calling subclass program(student)
+            Accommodation.Stay(); // Calling subclass program(dayscholar)
+            Bank.Fundtransfer(); // Calling subclass program(bank)
         }
     }
 }
