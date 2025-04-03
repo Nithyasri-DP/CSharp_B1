@@ -34,9 +34,9 @@
               "Title": "Bank.cs",
               "DocumentMoniker": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Bank.cs",
               "RelativeDocumentMoniker": "AssignmentSolutions\\Bank.cs",
-              "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Bank.cs*",
-              "RelativeToolTip": "AssignmentSolutions\\Bank.cs*",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA3wDcAAAAAAAAAAAAAAA==",
+              "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Bank.cs",
+              "RelativeToolTip": "AssignmentSolutions\\Bank.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T03:00:40.228Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "AssignmentSolutions\\Dayscholar.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T02:31:37.43Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T02:31:37.43Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "AssignmentSolutions\\Student.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T02:08:23.374Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T02:08:23.374Z"
             },
             {
               "$type": "Document",
@@ -75,10 +73,9 @@
               "RelativeDocumentMoniker": "AssignmentSolutions\\Stringfun.cs",
               "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Stringfun.cs",
               "RelativeToolTip": "AssignmentSolutions\\Stringfun.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-02T01:57:58.46Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-02T01:57:58.46Z"
             }
           ]
         }

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|d:\\csharpb1_hexaware\\daily-progress\\day15\\assignmentsolutions\\assignmentsolutions\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|solutionrelative:assignmentsolutions\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|d:\\csharpb1_hexaware\\daily-progress\\day15\\assignmentsolutions\\assignmentsolutions\\stringfun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|solutionrelative:assignmentsolutions\\stringfun.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|d:\\csharpb1_hexaware\\daily-progress\\day15\\assignmentsolutions\\assignmentsolutions\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|solutionrelative:assignmentsolutions\\bank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B901D18F-A30F-4A42-90A7-EB7B04059DBF}|AssignmentSolutions\\AssignmentSolutions.csproj|d:\\csharpb1_hexaware\\daily-progress\\day15\\assignmentsolutions\\assignmentsolutions\\dayscholar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,17 +26,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Bank.cs",
               "DocumentMoniker": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Bank.cs",
               "RelativeDocumentMoniker": "AssignmentSolutions\\Bank.cs",
               "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Bank.cs",
               "RelativeToolTip": "AssignmentSolutions\\Bank.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAwwB4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T03:00:40.228Z",
               "EditorCaption": ""
@@ -69,13 +69,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Stringfun.cs",
               "DocumentMoniker": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Stringfun.cs",
               "RelativeDocumentMoniker": "AssignmentSolutions\\Stringfun.cs",
               "ToolTip": "D:\\CsharpB1_Hexaware\\daily-progress\\Day15\\AssignmentSolutions\\AssignmentSolutions\\Stringfun.cs",
               "RelativeToolTip": "AssignmentSolutions\\Stringfun.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAuwCkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-02T01:57:58.46Z",
               "EditorCaption": ""
