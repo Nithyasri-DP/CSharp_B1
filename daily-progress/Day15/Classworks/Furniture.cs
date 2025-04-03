@@ -23,7 +23,8 @@ namespace AssignmentFour
         }
         public override void DisplayDetails()
         {
-            Console.WriteLine($"Chair -> Material: {Material}, Color: {Color}, Legs: {Legs}");
+            Console.WriteLine($"For CHAIR");
+            Console.WriteLine($"Material: {Material}, Color: {Color}, Legs: {Legs}");
         }
     }
     // Bookshelf class inheriting from Furniture
@@ -36,7 +37,8 @@ namespace AssignmentFour
         }
         public override void DisplayDetails()
         {
-            Console.WriteLine($"Bookshelf -> Material: {Material}, Color: {Color}, Shelves: {Shelves}");
+            Console.WriteLine($"For BOOKSHELF");
+            Console.WriteLine($"Material: {Material}, Color: {Color}, Shelves: {Shelves}");
         }
     }
     // Main program
