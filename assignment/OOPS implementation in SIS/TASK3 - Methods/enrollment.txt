@@ -1,0 +1,11 @@
+ // 1)Retrieves student associated with the enrollment [TASK-3]
+ public Student GetStudent()
+ {
+     return Student;
+ }
+
+ // 2)Retrieves courses associated with the enrollment [TASK-3]
+ public Course GetCourse()
+ {
+     return Course;
+ }

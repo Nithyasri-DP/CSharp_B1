@@ -1,0 +1,19 @@
+ // 1)Updating teacher information [TASK-3]
+ public void UpdateTeacherInfo(string firstName, string lastName, string email)
+ {
+     FirstName = firstName;
+     LastName = lastName;
+     Email = email;
+ }
+
+ // 2)Display teacher details [TASK-3]
+ public void DisplayTeacherInfo()
+ {
+     Console.WriteLine($"Teacher ID: {TeacherID}, Name: {FirstName} {LastName}, Email: {Email}");
+ }
+
+ // 3)Retrieve assigned courses [TASK-3]
+ public List<Course> GetAssignedCourses()
+ {
+     return assignedCourses;
+ }

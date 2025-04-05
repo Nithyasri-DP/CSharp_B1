@@ -1,0 +1,44 @@
+// ----------------- Methods for Managing Relationships [TASK-6] 
+// 1)AddEnrollment(student, course, enrollmentDate) [TASK-6]
+public void AddEnrollment(Student student, Course course, DateTime enrollmentDate)
+{
+    Enrollment enrollment = new Enrollment(Enrollments.Count + 1, student, course, enrollmentDate);
+    Enrollments.Add(enrollment);
+    student.EnrollInCourse(course);
+    course.AddEnrollment(enrollment);
+}
+
+// 2)AssignCourseToTeacher(course, teacher) [TASK-6]
+public void AssignCourseToTeacher(Course course, Teacher teacher)
+{
+    course.AssignTeacher(teacher);
+    teacher.AssignCourse(course);
+}
+
+// 3)AddPayment(student, amount, paymentDate) [TASK-6]
+public void AddPayment(Student student, decimal amount, DateTime paymentDate)
+{
+    Payment payment = new Payment(Payments.Count + 1, student, amount, paymentDate);
+    Payments.Add(payment);
+    student.MakePayment(payment.PaymentID, amount, paymentDate);
+}
+
+// 4)GetEnrollmentsForStudent(student) [TASK-6]
+public List<Enrollment> GetEnrollmentsForStudent(Student student)
+{
+    List<Enrollment> result = new List<Enrollment>();
+    foreach (var enrollment in Enrollments)
+    {
+        if (enrollment.GetStudent() == student)
+        {
+            result.Add(enrollment);
+        }
+    }
+    return result;
+}
+
+// 5)GetCoursesForTeacher(teacher) [TASK-6]
+public List<Course> GetCoursesForTeacher(Teacher teacher)
+{
+    return teacher.GetAssignedCourses();
+}

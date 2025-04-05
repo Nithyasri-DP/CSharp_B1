@@ -1,0 +1,44 @@
+// 1)Enroll student in a course [TASK-3]
+public void EnrollInCourse(Course course)
+{
+    enrolledCourses.Add(course);
+    Console.WriteLine($"{FirstName} enrolled in {course.CourseName}");
+}
+
+// 2)Updating student details [TASK-3]
+public void UpdateStudentInfo(string firstName, string lastName, DateTime dob, string email, string phone)
+{
+    FirstName = firstName;
+    LastName = lastName;
+    DateOfBirth = dob;
+    Email = email;
+    PhoneNumber = phone;
+    Console.WriteLine("Student details updated");
+}
+
+// 3)Making payment [TASK-3]       
+public void MakePayment(int paymentId, decimal amount, DateTime paymentDate)
+{
+    Payment payment = new Payment(paymentId, this, amount, paymentDate);
+    paymentHistory.Add(payment);
+    Console.WriteLine($"{FirstName} made a payment of {amount} on {paymentDate.ToShortDateString()}.");
+}
+
+// 4)Displaying student details [TASK-3]
+public void DisplayStudentInfo()
+{
+    Console.WriteLine($"ID: {StudentID}, Name: {FirstName} {LastName}, DOB: {DateOfBirth.ToShortDateString()}");
+    Console.WriteLine($"Email: {Email}, Phone: {PhoneNumber}");
+}
+
+// 5)Enrolled courses [TASK-3]
+public List<Course> GetEnrolledCourses()
+{
+    return enrolledCourses;
+}
+
+// 6)Payment history [TASK-3]
+public List<Payment> GetPaymentHistory()
+{
+    return paymentHistory;
+}

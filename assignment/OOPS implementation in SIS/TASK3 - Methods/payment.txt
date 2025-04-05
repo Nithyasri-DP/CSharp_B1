@@ -1,0 +1,17 @@
+// 1)Retrieves student associated with the payment [TASK-3]
+public Student GetStudent()
+{
+    return Student;
+}
+
+// 2)Retrieves payment amount [TASK-3]
+public decimal GetPaymentAmount()
+{
+    return Amount;
+}
+
+// 3)Retrieves payment date [TASK-3]
+public DateTime GetPaymentDate()
+{
+    return PaymentDate;
+}

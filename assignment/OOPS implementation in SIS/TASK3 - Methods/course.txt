@@ -1,0 +1,32 @@
+ // 1)Assigning teacher to the course [TASK-3]
+ public void AssignTeacher(Teacher teacher)
+ {
+     AssignedTeacher = teacher;
+     InstructorName = $"{teacher.FirstName} {teacher.LastName}"; // Concatenating teacher name
+ }
+
+ // 2)Updating course details [TASK-3]
+ public void UpdateCourseInfo(string courseCode, string courseName, string instructorName)
+ {
+     CourseCode = courseCode;
+     CourseName = courseName;
+     InstructorName = instructorName;
+ }
+
+ // 3)Displaying course details [TASK-3]
+ public void DisplayCourseInfo()
+ {
+     Console.WriteLine($"Course: {CourseCode} - {CourseName}, Instructor: {InstructorName}");
+ }
+
+ // 4)Getting list of students enrolled in a course [TASK-3]
+ public List<Enrollment> GetEnrollments()
+ {
+     return enrollments;
+ }
+
+ // 5)Retrieving assigned teacher for the course [TASK-3]
+ public Teacher GetTeacher()
+ {
+     return AssignedTeacher;
+ }
