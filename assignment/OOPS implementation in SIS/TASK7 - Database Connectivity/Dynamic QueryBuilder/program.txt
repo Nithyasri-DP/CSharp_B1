@@ -1,0 +1,33 @@
+//program.cs part
+            //Accepting user input for dynamic query
+            Console.Write("Enter table name: ");
+            string tableName = Console.ReadLine();
+
+            Console.Write("Enter columns to retrieve: ");
+            string[] colArray = Console.ReadLine().Split(',');
+            List<string> columns = new List<string>(colArray);
+
+            // Accept multiple conditions
+            Dictionary<string, string> conditions = new Dictionary<string, string>();
+            Console.Write("Enter number of conditions: ");
+            int condCount = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < condCount; i++)
+            {
+                Console.Write($"Enter condition column {i + 1}: ");
+                string col = Console.ReadLine();
+
+                Console.Write($"Enter value for {col}: ");
+                string val = Console.ReadLine();
+
+                conditions.Add(col, val);
+            }
+
+            Console.Write("Enter column to sort by (or leave blank to skip): ");
+            string orderByColumn = Console.ReadLine();
+
+            Console.Write("Sort ascending? (yes/no): ");
+            bool ascending = Console.ReadLine().Trim().ToLower() == "yes";
+
+            // Call the dynamic query method from sub class
+            Database.DynamicQueryBuilder(tableName, columns, conditions, orderByColumn, ascending)
