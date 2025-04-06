@@ -14,8 +14,7 @@ namespace StudentInformationSystem
         public string PhoneNumber { get; set; }
 
         //To identify balance(excep)
-        public decimal Balance { get; set; } = 0;
-
+        public decimal Balance { get; private set; }
 
         /* Lists to store enrollments and payments [TASK-3]
 
@@ -76,7 +75,7 @@ namespace StudentInformationSystem
                     throw new DuplicateEnrollmentException($"Student {FirstName} is already enrolled in {course.CourseName}");
             }
 
-            decimal courseFee = 1000;
+            decimal courseFee = 100;
 
             if (Balance < courseFee)
                 throw new InsufficientFundsException($"Insufficient funds. Course fee is {courseFee}, but balance is {Balance}");
@@ -145,6 +144,19 @@ namespace StudentInformationSystem
         public List<Payment> GetPaymentHistory()
         {
             return Payments;
+        }
+
+        //For temp data values, bal must be added to avoid exception
+        public void AddBalance(decimal amount)
+        {
+            if (amount > 0)
+            {
+                Balance += amount;
+            }
+            else
+            {
+                Console.WriteLine("Amount must be positive.");
+            }
         }
     }
 }

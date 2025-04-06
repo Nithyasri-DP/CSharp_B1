@@ -1,0 +1,45 @@
+//Enrollment Report Generation [TASK-11]
+public static void GenerateEnrollmentReport(string courseName)
+{
+    using (SqlConnection con = new SqlConnection(connectionString))
+    {
+        con.Open();
+        //Course id
+        SqlCommand getCourseIdCmd = new SqlCommand("SELECT course_id FROM Courses WHERE course_name = @courseName", con);
+        getCourseIdCmd.Parameters.AddWithValue("@courseName", courseName);
+
+        object result = getCourseIdCmd.ExecuteScalar();
+        if (result == null)
+        {
+            Console.WriteLine("Course not found.");
+            return;
+        }
+
+        int courseId = Convert.ToInt32(result);
+
+        //Get enrollment record
+        SqlCommand reportCmd = new SqlCommand(@"
+        SELECT s.student_id, s.first_name, s.last_name
+        FROM Enrollments e
+        JOIN Students s ON e.student_id = s.student_id
+        WHERE e.course_id = @courseId", con);
+        reportCmd.Parameters.AddWithValue("@courseId", courseId);
+
+        SqlDataReader reader = reportCmd.ExecuteReader();
+
+        //Displaying in report structure
+        Console.WriteLine($"Enrollment Report for '{courseName}':");
+        Console.WriteLine("Student ID   |   First Name   |   Last Name");
+        Console.WriteLine("-------------------------------------------");
+
+        while (reader.Read())
+        {
+            int studentId = (int)reader["student_id"];
+            string firstName = reader["first_name"].ToString();
+            string lastName = reader["last_name"].ToString();
+            Console.WriteLine($"{studentId} \t {firstName} \t {lastName}");
+        }
+
+        reader.Close();
+    }
+}

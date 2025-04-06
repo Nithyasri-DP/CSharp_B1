@@ -4,16 +4,15 @@ namespace StudentInformationSystem
 {
     public class ExceptionTests
     {
-        public static void RunAll()
+        public static void RunException()
         {
-            //Hard coded examples to demonstrate exceptions(moved to new .cs file for segregation)
+            //Hard coded examples to demonstrate exceptions(moved to new .cs file for segregation) [TASK-4]
             // 1)DuplicateEnrollmentException
             try
             {
                 Student student = new Student(111, "Kavya", "Rao", new DateTime(2003, 8, 8), "kavyarao@gmail.com", "14345");
-                Course courseTest = new Course(16, "AI", "AI101", "Bhava Dharani");
-                student.Balance = 2000; //Using this here to avoid catching in insufficient bal exception
-
+                student.AddBalance(2000.00m);  //Using this here to avoid catching in insufficient bal exception
+                Course courseTest = new Course(16, "AI", "AI101", "Bhava Dharani");              
                 student.EnrollInCourse(courseTest);
                 student.EnrollInCourse(courseTest);
             }

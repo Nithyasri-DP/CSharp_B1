@@ -1,0 +1,93 @@
+        //Getting payment record [TASK-10]
+        public static void RecordStudentPayment(int studentId, decimal amount, DateTime paymentDate)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                try
+                {
+                    // Check if student exists
+                    string checkQuery = "SELECT COUNT(*) FROM Students WHERE student_id = @StudentId";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn, transaction))
+                    {
+                        checkCmd.Parameters.AddWithValue("@StudentId", studentId);
+                        int count = (int)checkCmd.ExecuteScalar();
+                        if (count == 0)
+                        {
+                            throw new Exception("Student not found.");
+                        }
+                    }
+
+                    // Get next payment_id manually
+                    int newPaymentId;
+                    using (SqlCommand cmd = new SqlCommand("SELECT ISNULL(MAX(payment_id), 0) + 1 FROM Payments", conn, transaction))
+                    {
+                        newPaymentId = (int)cmd.ExecuteScalar();
+                    }
+
+                    // Insert payment
+                    string insertPayment = @"INSERT INTO Payments (payment_id, student_id, amount, payment_date) 
+                                     VALUES (@Id, @StudentId, @Amount, @Date)";
+                    using (SqlCommand cmd = new SqlCommand(insertPayment, conn, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", newPaymentId);
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        cmd.Parameters.AddWithValue("@Amount", amount);
+                        cmd.Parameters.AddWithValue("@Date", paymentDate);
+                        cmd.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                    Console.WriteLine("Payment recorded successfully.");
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+
+        //------------------------------------------TASK-10
+
+        public static void PerformTaskten()
+        {
+            Console.WriteLine("Enter Student Details:");
+            Console.Write("Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Console.Write("First Name: ");
+            string firstName = Console.ReadLine();
+
+            Console.Write("Last Name: ");
+            string lastName = Console.ReadLine();
+
+            Console.Write("Date of Birth (yyyy-mm-dd): ");
+            DateTime dob = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Email: ");
+            string email = Console.ReadLine();
+
+            Console.Write("Phone Number: ");
+            string phone = Console.ReadLine();
+
+            Database.InsertStudent(studentId, firstName, lastName, dob, email, phone);
+            Console.WriteLine("Student inserted successfully.");
+        }
+
+        public static void PaymentRecord()
+        { 
+            Console.Write("\nEnter Payment Details:");
+            Console.Write("Payment ID: ");
+            int paymentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Payment Amount: ");
+            decimal amount = decimal.Parse(Console.ReadLine());
+
+            Console.Write("Payment Date (yyyy-mm-dd): ");
+            DateTime paymentDate = DateTime.Parse(Console.ReadLine());
+
+            Database.InsertPayment(paymentId, studentId, amount, paymentDate);
+            Console.Write("Payment recorded successfully.");

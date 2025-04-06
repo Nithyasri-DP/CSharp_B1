@@ -113,3 +113,30 @@ public static void EnrollJohnDoe()
         }
     }
 }
+
+
+        //Getting output for task-8
+        public static void ShowJohnDoeEnrollments()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = @"
+                SELECT S.first_name, S.last_name, C.course_name, E.enrollment_date
+                FROM Enrollments E
+                JOIN Students S ON E.student_id = S.student_id
+                JOIN Courses C ON E.course_id = C.course_id
+                WHERE S.first_name = 'John' AND S.last_name = 'Doe'";
+
+                SqlCommand cmd = new SqlCommand(query, connection);
+                connection.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    Console.WriteLine("John Doe's Enrollments:");
+                    while (reader.Read())
+                    {
+                        Console.WriteLine($"{reader["first_name"]} {reader["last_name"]} - {reader["course_name"]} on {reader["enrollment_date"]}");
+                    }
+                }
+            }
+        }

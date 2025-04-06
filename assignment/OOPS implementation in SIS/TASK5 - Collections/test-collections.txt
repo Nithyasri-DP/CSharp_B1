@@ -1,0 +1,45 @@
+//Code on testing collections with sample inputs which is stored in DB     
+         public static void TestCollections()
+        {
+            // Creating student
+            Student s1 = new Student(201, "Kiran", "Patel", new DateTime(2002, 6, 12), "kiran.patel@gmail.com", "99999");
+            s1.AddBalance(1000); // Add balance for enrollment
+
+            // Creating courses
+            Course c1 = new Course(301, "Data Science", "DS101", "Dr. Aarti");
+            Course c2 = new Course(302, "Cyber Security", "CS101", "Dr. Ravi");
+
+            // Enrolling student in courses
+            s1.EnrollInCourse(c1);
+            s1.EnrollInCourse(c2);
+
+            // Display student enrollments
+            Console.WriteLine($"\nCourses enrolled by {s1.FirstName}:");
+            foreach (var enrollment in s1.Enrollments)
+            {
+                Console.WriteLine($"- {enrollment.Course.CourseName}");
+            }
+
+            // Creating teacher and assigning courses
+            Teacher t1 = new Teacher(401, "Dr. Aarti", "Computer Science", "aarti@college.edu");
+            t1.AssignCourse(c1);
+            t1.AssignCourse(c2);
+
+            // Display teacher's assigned courses
+            Console.WriteLine($"\nCourses assigned to {t1.FirstName} {t1.LastName}:");
+            foreach (var course in t1.AssignedCourses)
+            {
+                Console.WriteLine($"- {course.CourseName}");
+            }
+
+            // Make payment
+            s1.MakePayment(501, 500, DateTime.Now);
+
+            // Display student payment history
+            Console.WriteLine($"\nPayment history for {s1.FirstName}:");
+            foreach (var payment in s1.Payments)
+            {
+                Console.WriteLine($"- Paid {payment.Amount} on {payment.PaymentDate.ToShortDateString()}");
+            }
+        }
+

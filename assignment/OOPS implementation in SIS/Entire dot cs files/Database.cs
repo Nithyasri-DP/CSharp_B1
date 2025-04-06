@@ -133,7 +133,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Data insertion for Students table
+        //Data insertion for Students table [TASK-7]
         public static void InsertStudent(int studentId, string firstName, string lastName, DateTime dateOfBirth, string email, string phoneNumber)
         {
             // Validation Check
@@ -177,7 +177,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Data insertion for Enrollment table
+        //Data insertion for Enrollment table  [TASK-7]
         public static void InsertEnrollment(int enrollmentId, int studentId, int courseId, DateTime enrollmentDate)
         {
             using (SqlConnection con = GetConnection())
@@ -216,7 +216,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Data insertion for Payments table
+        //Data insertion for Payments table  [TASK--7]
         public static void InsertPayment(int paymentId, int studentId, decimal amount, DateTime paymentDate)
         {
             //Validation check
@@ -261,7 +261,7 @@ namespace StudentInformationSystem
             }
         }
 
-        // Method to update student information
+        // Method to update student information  [TASK-7]
         public static void UpdateStudent(int studentId, string firstName, string lastName, string email, string phoneNumber)
         {
             //Validation Check
@@ -304,7 +304,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Enroll a Student + Record Payment (Transactional)
+        //Enroll a Student + Record Payment (Transactional)  [TASK-7]
         public static void EnrollStudentWithPayment(int studentId, int courseId, DateTime enrollmentDate, decimal amount, DateTime paymentDate)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -349,7 +349,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Assign a teacher(transactional)
+        //Assign a teacher(transactional)  [TASK-7]
         public static void AssignTeacherToCourseTransactional(int teacherId, int courseId)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -398,7 +398,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Recording payments independently(transactional)
+        //Recording payments independently(transactional)  [TASK-7]
         public static void RecordPaymentTransactional(int studentId, decimal amount, DateTime paymentDate)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -431,7 +431,7 @@ namespace StudentInformationSystem
             }
         }
 
-        //Dynamic Query
+        //Dynamic Query  [TASK-7]
         public static void DynamicQueryBuilder(string tableName, List<string> columns, Dictionary<string, string> conditions, string orderByColumn, bool ascending)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -632,6 +632,171 @@ namespace StudentInformationSystem
                         Console.WriteLine($"{reader["first_name"]} {reader["last_name"]} - {reader["course_name"]} on {reader["enrollment_date"]}");
                     }
                 }
+            }
+        }
+
+        //Data insertion for Course table (as required in TASK-9)
+        //skipped course_code as we dont have that column in sql server
+        public static void InsertCourse(int courseId, string courseName, int credits)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "INSERT INTO Courses (course_id, course_name, credits) VALUES (@Id, @Name, @Credits)";
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", courseId);
+                    cmd.Parameters.AddWithValue("@Name", courseName);
+                    cmd.Parameters.AddWithValue("@Credits", credits);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //Data insertion for Teacher table (as required in TASK-9)
+        //skipped expertise as we dont have that column in sql server
+        public static void InsertTeacher(int teacherId, string firstName, string lastName, string email)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "INSERT INTO Teacher (teacher_id, first_name, last_name, email) VALUES (@Id, @First, @Last, @Email)";
+                using (SqlCommand cmd = new SqlCommand(query, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Id", teacherId);
+                    cmd.Parameters.AddWithValue("@First", firstName);
+                    cmd.Parameters.AddWithValue("@Last", lastName);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        //Getting payment record [TASK-10]
+        public static void RecordStudentPayment(int studentId, decimal amount, DateTime paymentDate)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                SqlTransaction transaction = conn.BeginTransaction();
+
+                try
+                {
+                    // Check if student exists
+                    string checkQuery = "SELECT COUNT(*) FROM Students WHERE student_id = @StudentId";
+                    using (SqlCommand checkCmd = new SqlCommand(checkQuery, conn, transaction))
+                    {
+                        checkCmd.Parameters.AddWithValue("@StudentId", studentId);
+                        int count = (int)checkCmd.ExecuteScalar();
+                        if (count == 0)
+                        {
+                            throw new Exception("Student not found.");
+                        }
+                    }
+
+                    // Get next payment_id manually
+                    int newPaymentId;
+                    using (SqlCommand cmd = new SqlCommand("SELECT ISNULL(MAX(payment_id), 0) + 1 FROM Payments", conn, transaction))
+                    {
+                        newPaymentId = (int)cmd.ExecuteScalar();
+                    }
+
+                    // Insert payment
+                    string insertPayment = @"INSERT INTO Payments (payment_id, student_id, amount, payment_date) 
+                                     VALUES (@Id, @StudentId, @Amount, @Date)";
+                    using (SqlCommand cmd = new SqlCommand(insertPayment, conn, transaction))
+                    {
+                        cmd.Parameters.AddWithValue("@Id", newPaymentId);
+                        cmd.Parameters.AddWithValue("@StudentId", studentId);
+                        cmd.Parameters.AddWithValue("@Amount", amount);
+                        cmd.Parameters.AddWithValue("@Date", paymentDate);
+                        cmd.ExecuteNonQuery();
+                    }
+                    transaction.Commit();
+                    Console.WriteLine("Payment recorded successfully.");
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+
+        //method to retrieve jane details as mentioned in question [TASK-10]
+        public static void GetStudentById(int studentId)
+        {
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                string query = "SELECT * FROM Students WHERE student_id = @studentId";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@studentId", studentId);
+
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    Console.WriteLine("Student Found");
+                    Console.WriteLine($"ID: {reader["student_id"]}");
+                    Console.WriteLine($"Name: {reader["first_name"]} {reader["last_name"]}");
+                    Console.WriteLine($"DOB: {reader["date_of_birth"]}");
+                    Console.WriteLine($"Email: {reader["email"]}");
+                    Console.WriteLine($"Phone: {reader["phone_number"]}");
+                }
+                else
+                {
+                    Console.WriteLine("Student not found");
+                }
+
+                reader.Close();
+            }
+        }
+
+        //Enrollment Report Generation [TASK-11]
+        public static void GenerateEnrollmentReport(string courseName)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                //Course id
+                SqlCommand getCourseIdCmd = new SqlCommand("SELECT course_id FROM Courses WHERE course_name = @courseName", con);
+                getCourseIdCmd.Parameters.AddWithValue("@courseName", courseName);
+
+                object result = getCourseIdCmd.ExecuteScalar();
+                if (result == null)
+                {
+                    Console.WriteLine("Course not found.");
+                    return;
+                }
+
+                int courseId = Convert.ToInt32(result);
+
+                //Get enrollment record
+                SqlCommand reportCmd = new SqlCommand(@"
+                SELECT s.student_id, s.first_name, s.last_name
+                FROM Enrollments e
+                JOIN Students s ON e.student_id = s.student_id
+                WHERE e.course_id = @courseId", con);
+                reportCmd.Parameters.AddWithValue("@courseId", courseId);
+
+                SqlDataReader reader = reportCmd.ExecuteReader();
+
+                //Displaying in report structure
+                Console.WriteLine($"Enrollment Report for '{courseName}':");
+                Console.WriteLine("Student ID   |   First Name   |   Last Name");
+                Console.WriteLine("-------------------------------------------");
+
+                while (reader.Read())
+                {
+                    int studentId = (int)reader["student_id"];
+                    string firstName = reader["first_name"].ToString();
+                    string lastName = reader["last_name"].ToString();
+                    Console.WriteLine($"{studentId} \t {firstName} \t {lastName}");
+                }
+
+                reader.Close();
             }
         }
     }
