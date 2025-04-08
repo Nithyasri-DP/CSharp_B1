@@ -494,7 +494,7 @@ namespace StudentInformationSystem
 
         //----------------------------------------------------------------------[TASK-8]
         //Enroling a student with the given details
-        public static void EnrollJohnDoe()
+        public static void EnrollStudentFromInput()
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -503,134 +503,132 @@ namespace StudentInformationSystem
 
                 try
                 {
+                    // 1. Get student details
+                    Console.WriteLine("Enter First Name:");
+                    string firstName = Console.ReadLine();
+
+                    Console.WriteLine("Enter Last Name:");
+                    string lastName = Console.ReadLine();
+
+                    Console.WriteLine("Enter Date of Birth (yyyy-mm-dd):");
+                    DateTime dob = DateTime.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Enter Email:");
+                    string email = Console.ReadLine();
+
+                    Console.WriteLine("Enter Phone Number:");
+                    string phone = Console.ReadLine();
+
                     int studentId;
 
-                    // 1. Check if student already exists (as we have created John Doe in SQL creation task itself)
+                    // 2. Check if student exists
                     string checkStudentQuery = "SELECT student_id FROM Students WHERE first_name = @FirstName AND last_name = @LastName AND email = @Email";
                     using (SqlCommand checkCmd = new SqlCommand(checkStudentQuery, connection, transaction))
                     {
-                        checkCmd.Parameters.AddWithValue("@FirstName", "John");
-                        checkCmd.Parameters.AddWithValue("@LastName", "Doe");
-                        checkCmd.Parameters.AddWithValue("@Email", "john.doe@example.com");
+                        checkCmd.Parameters.AddWithValue("@FirstName", firstName);
+                        checkCmd.Parameters.AddWithValue("@LastName", lastName);
+                        checkCmd.Parameters.AddWithValue("@Email", email);
 
                         object result = checkCmd.ExecuteScalar();
 
                         if (result != null)
                         {
                             studentId = Convert.ToInt32(result);
+                            Console.WriteLine("Student already exists. Proceeding with existing student ID.");
                         }
                         else
                         {
-                            // 2. Insert student if not found(in our code, the student exists already)
-                            // Get next student_id manually as we are not using IDENTITY(1,1) in sql server
-                            string getMaxStudentId = "SELECT ISNULL(MAX(student_id), 0) FROM Students";
-                            int newStudentId;
+                            string getMaxId = "SELECT ISNULL(MAX(student_id), 0) FROM Students";
+                            using (SqlCommand maxCmd = new SqlCommand(getMaxId, connection, transaction))
+                                studentId = (int)maxCmd.ExecuteScalar() + 1;
 
-                            using (SqlCommand maxCmd = new SqlCommand(getMaxStudentId, connection, transaction))
-                            {
-                                newStudentId = (int)maxCmd.ExecuteScalar() + 1;
-                            }
-                            string insertStudent = @"INSERT INTO Students (first_name, last_name, date_of_birth, email, phone_number)VALUES (@FirstName, @LastName, @DOB, @Email, @Phone);";
-
+                            string insertStudent = @"INSERT INTO Students (student_id, first_name, last_name, date_of_birth, email, phone_number)
+                                             VALUES (@ID, @FirstName, @LastName, @DOB, @Email, @Phone)";
                             using (SqlCommand insertCmd = new SqlCommand(insertStudent, connection, transaction))
                             {
-                                insertCmd.Parameters.AddWithValue("@FirstName", "John");
-                                insertCmd.Parameters.AddWithValue("@LastName", "Doe");
-                                insertCmd.Parameters.AddWithValue("@DOB", DateTime.Parse("1995-08-15"));
-                                insertCmd.Parameters.AddWithValue("@Email", "john.doe@example.com");
-                                insertCmd.Parameters.AddWithValue("@Phone", "123-456-7890");
-
-                                insertCmd.ExecuteNonQuery(); 
+                                insertCmd.Parameters.AddWithValue("@ID", studentId);
+                                insertCmd.Parameters.AddWithValue("@FirstName", firstName);
+                                insertCmd.Parameters.AddWithValue("@LastName", lastName);
+                                insertCmd.Parameters.AddWithValue("@DOB", dob);
+                                insertCmd.Parameters.AddWithValue("@Email", email);
+                                insertCmd.Parameters.AddWithValue("@Phone", phone);
+                                insertCmd.ExecuteNonQuery();
+                                Console.WriteLine("New student inserted successfully.");
                             }
-                            studentId = newStudentId; // Using manually generated ID
                         }
                     }
 
-                    // 3. Insert two fixed courses
-                    List<string> courses = new List<string> { "Introduction to Programming", "Mathematics 101" };
+                    // 3. Get course count
+                    Console.WriteLine("How many courses to enroll?");
+                    int courseCount = int.Parse(Console.ReadLine());
+
                     List<int> courseIds = new List<int>();
-
-                    foreach (string course in courses)
+                    for (int i = 0; i < courseCount; i++)
                     {
-                        // Get next course_id manually as we are not using IDENTITY(1,1) in sql server
-                        string getMaxCourseId = "SELECT ISNULL(MAX(course_id), 0) FROM Courses";
-                        int newCourseId;
+                        Console.WriteLine($"Enter Course Name {i + 1}:");
+                        string courseName = Console.ReadLine();
 
-                        using (SqlCommand getMaxCmd = new SqlCommand(getMaxCourseId, connection, transaction))
+                        // Check if course exists
+                        string checkCourseQuery = "SELECT course_id FROM Courses WHERE course_name = @CourseName";
+                        using (SqlCommand checkCourseCmd = new SqlCommand(checkCourseQuery, connection, transaction))
                         {
-                            newCourseId = (int)getMaxCmd.ExecuteScalar() + 1;
-                        }
+                            checkCourseCmd.Parameters.AddWithValue("@CourseName", courseName);
+                            object result = checkCourseCmd.ExecuteScalar();
 
-                        //adding the required courses 
-                        string insertCourse = "INSERT INTO Courses (course_id, course_name, credits, teacher_id) VALUES (@CourseID, @CourseName, @Credits, NULL)";
-                        using (SqlCommand courseCmd = new SqlCommand(insertCourse, connection, transaction))
-                        {
-                            courseCmd.Parameters.AddWithValue("@CourseID", newCourseId);
-                            courseCmd.Parameters.AddWithValue("@CourseName", course);
-                            courseCmd.Parameters.AddWithValue("@Credits", 3);
+                            if (result != null)
+                            {
+                                courseIds.Add(Convert.ToInt32(result));
+                                Console.WriteLine("Course already exists. Using existing course ID.");
+                            }
+                            else
+                            {
+                                // Insert new course
+                                string getMaxCourseId = "SELECT ISNULL(MAX(course_id), 0) FROM Courses";
+                                int newCourseId;
+                                using (SqlCommand maxCmd = new SqlCommand(getMaxCourseId, connection, transaction))
+                                    newCourseId = (int)maxCmd.ExecuteScalar() + 1;
 
-                            courseCmd.ExecuteNonQuery();
-                            courseIds.Add(newCourseId);
+                                string insertCourse = "INSERT INTO Courses (course_id, course_name, credits, teacher_id) VALUES (@ID, @Name, @Credits, NULL)";
+                                using (SqlCommand insertCmd = new SqlCommand(insertCourse, connection, transaction))
+                                {
+                                    insertCmd.Parameters.AddWithValue("@ID", newCourseId);
+                                    insertCmd.Parameters.AddWithValue("@Name", courseName);
+                                    insertCmd.Parameters.AddWithValue("@Credits", 3); // default
+                                    insertCmd.ExecuteNonQuery();
+                                }
+
+                                courseIds.Add(newCourseId);
+                                Console.WriteLine("New course inserted successfully.");
+                            }
                         }
                     }
 
-                    // 4. Enroll John into newly added courses
+                    // 4. Enroll student into each course
                     foreach (int courseId in courseIds)
                     {
-                        // Get next enrollment_id manually
                         string getMaxEnrollId = "SELECT ISNULL(MAX(enrollment_id), 0) FROM Enrollments";
-                        int newEnrollmentId;
-                        using (SqlCommand maxEnrollCmd = new SqlCommand(getMaxEnrollId, connection, transaction))
-                        {
-                            newEnrollmentId = (int)maxEnrollCmd.ExecuteScalar() + 1;
-                        }
-                        //enrolling values
-                        string enrollQuery = "INSERT INTO Enrollments (enrollment_id, student_id, course_id, enrollment_date) " +
-                                             "VALUES (@EnrollmentID, @StudentID, @CourseID, @Date)";
+                        int newEnrollId;
+                        using (SqlCommand maxCmd = new SqlCommand(getMaxEnrollId, connection, transaction))
+                            newEnrollId = (int)maxCmd.ExecuteScalar() + 1;
 
+                        string enrollQuery = "INSERT INTO Enrollments (enrollment_id, student_id, course_id, enrollment_date) VALUES (@EnrollID, @StudentID, @CourseID, @Date)";
                         using (SqlCommand enrollCmd = new SqlCommand(enrollQuery, connection, transaction))
                         {
-                            enrollCmd.Parameters.AddWithValue("@EnrollmentID", newEnrollmentId);
+                            enrollCmd.Parameters.AddWithValue("@EnrollID", newEnrollId);
                             enrollCmd.Parameters.AddWithValue("@StudentID", studentId);
                             enrollCmd.Parameters.AddWithValue("@CourseID", courseId);
                             enrollCmd.Parameters.AddWithValue("@Date", DateTime.Now);
-
                             enrollCmd.ExecuteNonQuery();
                         }
                     }
+
                     transaction.Commit();
-                    Console.WriteLine("John Doe enrolled into both courses successfully");
+                    Console.WriteLine($"\n{firstName} {lastName} enrolled successfully in {courseCount} course(s).");
                 }
                 catch (Exception ex)
                 {
                     transaction.Rollback();
-                    Console.WriteLine("Error during enrollment: " + ex.Message);
-                }
-            }
-        }
-
-        //Getting output for task-8
-        public static void ShowJohnDoeEnrollments()
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string query = @"
-                SELECT S.first_name, S.last_name, C.course_name, E.enrollment_date
-                FROM Enrollments E
-                JOIN Students S ON E.student_id = S.student_id
-                JOIN Courses C ON E.course_id = C.course_id
-                WHERE S.first_name = 'John' AND S.last_name = 'Doe'";
-
-                SqlCommand cmd = new SqlCommand(query, connection);
-                connection.Open();
-
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    Console.WriteLine("John Doe's Enrollments:");
-                    while (reader.Read())
-                    {
-                        Console.WriteLine($"{reader["first_name"]} {reader["last_name"]} - {reader["course_name"]} on {reader["enrollment_date"]}");
-                    }
+                    Console.WriteLine("Error: " + ex.Message);
                 }
             }
         }
