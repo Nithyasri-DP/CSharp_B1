@@ -1,0 +1,32 @@
+//using same code on transactions which we usred on task-7 for TASK-9
+
+        public static void AssignTeacherToCourseTransactional(int teacherId, int courseId)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                SqlTransaction transaction = con.BeginTransaction();
+
+                try
+                {
+                    SqlCommand assignCmd = new SqlCommand(
+                        "UPDATE Courses SET teacher_id = @teacherId WHERE course_id = @courseId", con, transaction);
+                    assignCmd.Parameters.AddWithValue("@teacherId", teacherId);
+                    assignCmd.Parameters.AddWithValue("@courseId", courseId);
+
+                    int rows = assignCmd.ExecuteNonQuery();
+
+                    if (rows == 0)
+                        throw new Exception("Course not found or update failed");
+
+                    transaction.Commit();
+                    Console.WriteLine("Teacher assigned to course successfully");
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                    Console.WriteLine("Transaction failed, Rolled back.");
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
