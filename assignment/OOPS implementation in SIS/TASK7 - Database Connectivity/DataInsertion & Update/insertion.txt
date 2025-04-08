@@ -1,0 +1,83 @@
+        //Data insertion for Enrollment table  [TASK-7]
+        public static void InsertEnrollment(int enrollmentId, int studentId, int courseId, DateTime enrollmentDate)
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Enrollments (enrollment_id, student_id, course_id, enrollment_date) " +
+                                                   "VALUES (@enrollmentId, @studentId, @courseId, @enrollmentDate)", con);
+
+                    cmd.Parameters.AddWithValue("@enrollmentId", enrollmentId);
+                    cmd.Parameters.AddWithValue("@studentId", studentId);
+                    cmd.Parameters.AddWithValue("@courseId", courseId);
+                    cmd.Parameters.AddWithValue("@enrollmentDate", enrollmentDate);
+
+                    try
+                    {
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("Enrollment inserted successfully");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to insert enrollment");
+                        }
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        //Data insertion for Payments table  [TASK--7]
+        public static void InsertPayment(int paymentId, int studentId, decimal amount, DateTime paymentDate)
+        {
+            //Validation check
+            if (amount <= 0)
+            {
+                Console.WriteLine("Payment amount must be positive.");
+                return;
+            }
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Payments (payment_id, student_id, amount, payment_date) " +
+                                                   "VALUES (@paymentId, @studentId, @amount, @paymentDate)", con);
+
+                    cmd.Parameters.AddWithValue("@paymentId", paymentId);
+                    cmd.Parameters.AddWithValue("@studentId", studentId);
+                    cmd.Parameters.AddWithValue("@amount", amount);
+                    cmd.Parameters.AddWithValue("@paymentDate", paymentDate);
+
+                    try
+                    {
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("Payment inserted successfully");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to insert payment");
+                        }
+                    }
+                    catch (SqlException sqlEx)
+                    {
+                        Console.WriteLine($"SQL Error: {sqlEx.Message}");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+        }
