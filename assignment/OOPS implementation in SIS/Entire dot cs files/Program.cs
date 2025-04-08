@@ -10,7 +10,7 @@ namespace StudentInformationSystem
             //Calling methods from other classes
 
             //[TASK-3]
-            /*   Task.TestMethods();
+              Task.TestMethods();
 
                //[TASK-4]
                ExceptionTests.RunException();   
@@ -29,21 +29,25 @@ namespace StudentInformationSystem
                Database.GetAllTeachers();  
                Database.GetAllPayments();
 
-               //Insertion and Updation
-               //Cannot add the same tables values as it violates constraints
-               Task.AddValuesSisDb();             
-               Task.UpdateStudentInfo();
+               //Insertion and Updation        
+
+                Task.InsertStudentFromUserInput();
+                Task.InsertEnrollmentFromUserInput();
+                Task.InsertPaymentFromUserInput();
+                Task.GetInputForEnrollmentWithPayment();            
+                Task.GetInputForTeacherAssignment();
+                Task.GetInputForPaymentRecording();
+
 
                //Transactions(Enrolling students + their payments and recording payments can viewed by table retreivals)
                //Viewing assigned teacher to the course
-               Database.ShowCoursesByTeacher(58);
+               Database.ShowCoursesByTeacher(55);
 
                //Dynamic Query Builder
                Task.RunDynamicQuery();
 
                //[TASK-8]
-               Database.EnrollStudentFromInput(); //Already enrolled so repeated action cant be performed
-               Database.ShowJohnDoeEnrollments();  
+               Database.EnrollStudentFromInput();
 
                //[TASK-9]
                Task.PerformTask9(); 
@@ -65,11 +69,8 @@ namespace StudentInformationSystem
                //Generating report for Computer Science 101
                Console.Write("Enter course name to generate report: ");
                string courseName = Console.ReadLine();
-               Database.GenerateEnrollmentReport(courseName); */
+               Database.GenerateEnrollmentReport(courseName); 
 
-
-            // Database.EnrollStudentFromInput();
-            Database.GetAllCourses();
         }
     }
 }

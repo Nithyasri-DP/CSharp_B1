@@ -1,0 +1,126 @@
+ //Enroll a Student + Record Payment (Transactional)  [TASK-7]
+ public static void EnrollStudentWithPayment(int studentId, int courseId, DateTime enrollmentDate, decimal amount, DateTime paymentDate)
+ {
+     using (SqlConnection con = new SqlConnection(connectionString))
+     {
+         con.Open();
+         SqlTransaction transaction = con.BeginTransaction();
+
+         try
+         {
+             // 1. Insert into Enrollments
+
+             int newEnrollmentId = 12; // must be unique cuz i didnt used identity(1,1) in enrollments table
+             SqlCommand enrollCmd = new SqlCommand(
+                 "INSERT INTO Enrollments (enrollment_id,student_id, course_id, enrollment_date) VALUES (@enrollmentId, @studentId, @courseId, @enrollDate)", con, transaction);
+             enrollCmd.Parameters.AddWithValue("@enrollmentId", newEnrollmentId);
+             enrollCmd.Parameters.AddWithValue("@studentId", studentId);
+             enrollCmd.Parameters.AddWithValue("@courseId", courseId);
+             enrollCmd.Parameters.AddWithValue("@enrollDate", enrollmentDate);
+             enrollCmd.ExecuteNonQuery();
+
+             // 2. Insert into Payments
+
+             int newPaymentId = 14; // must be unique cuz i didnt used identity(1,1) in enrollments table
+             SqlCommand paymentCmd = new SqlCommand("INSERT INTO Payments (payment_id, student_id, amount, payment_date) VALUES (@paymentId, @studentId, @amount, @payDate)", con, transaction);
+             paymentCmd.Parameters.AddWithValue("@paymentId", newPaymentId);
+             paymentCmd.Parameters.AddWithValue("@studentId", studentId);
+             paymentCmd.Parameters.AddWithValue("@amount", amount);
+             paymentCmd.Parameters.AddWithValue("@payDate", paymentDate);
+             paymentCmd.ExecuteNonQuery();
+
+             // 3. Commit if both succeed
+             transaction.Commit();
+             Console.WriteLine("Enrollment and payment completed successfully");
+         }
+         catch (Exception ex)
+         {
+             // Rollback if any fails
+             transaction.Rollback();
+             Console.WriteLine("Transaction failed, Rolled back.");
+             Console.WriteLine("Error: " + ex.Message);
+         }
+     }
+ }
+
+ //Assign a teacher(transactional)  [TASK-7]
+ public static void AssignTeacherToCourseTransactional(int teacherId, int courseId)
+ {
+     using (SqlConnection con = new SqlConnection(connectionString))
+     {
+         con.Open();
+         SqlTransaction transaction = con.BeginTransaction();
+
+         try
+         {
+             SqlCommand assignCmd = new SqlCommand(
+                 "UPDATE Courses SET teacher_id = @teacherId WHERE course_id = @courseId", con, transaction);
+             assignCmd.Parameters.AddWithValue("@teacherId", teacherId);
+             assignCmd.Parameters.AddWithValue("@courseId", courseId);
+
+             int rows = assignCmd.ExecuteNonQuery();
+
+             if (rows == 0)
+                 throw new Exception("Course not found or update failed");
+
+             transaction.Commit();
+             Console.WriteLine("Teacher assigned to course successfully");
+         }
+         catch (Exception ex)
+         {
+             transaction.Rollback();
+             Console.WriteLine("Transaction failed, Rolled back.");
+             Console.WriteLine("Error: " + ex.Message);
+         }
+     }
+ }
+
+ //Viewing assigned teacher
+ public static void ShowCoursesByTeacher(int teacherId)
+ {
+     using (SqlConnection con = new SqlConnection(connectionString))
+     {
+         con.Open();
+         SqlCommand cmd = new SqlCommand("SELECT * FROM Courses WHERE teacher_id = @teacherId", con);
+         cmd.Parameters.AddWithValue("@teacherId", teacherId);
+
+         SqlDataReader reader = cmd.ExecuteReader();
+         while (reader.Read())
+         {
+             Console.WriteLine($"Course: {reader["course_name"]}, Assigned Teacher ID: {reader["teacher_id"]}");
+         }
+     }
+ }
+
+ //Recording payments independently(transactional)  [TASK-7]
+ public static void RecordPaymentTransactional(int studentId, decimal amount, DateTime paymentDate)
+ {
+     using (SqlConnection con = new SqlConnection(connectionString))
+     {
+         con.Open();
+         SqlTransaction transaction = con.BeginTransaction();
+
+         try
+         {
+             int newPaymentId = 15; // must be unique cuz i didnt used identity(1,1) in enrollments table
+
+             SqlCommand paymentCmd = new SqlCommand(
+                 "INSERT INTO Payments (payment_id, student_id, amount, payment_date) VALUES (@paymentId, @studentId, @amount, @paymentDate)",con, transaction);
+             paymentCmd.Parameters.AddWithValue("@paymentId", newPaymentId);
+             paymentCmd.Parameters.AddWithValue("@studentId", studentId);
+             paymentCmd.Parameters.AddWithValue("@amount", amount);
+             paymentCmd.Parameters.AddWithValue("@paymentDate", paymentDate);
+
+             paymentCmd.ExecuteNonQuery();
+
+             transaction.Commit();
+             Console.WriteLine("Payment recorded successfully");
+         }
+         catch (Exception ex)
+         {
+             transaction.Rollback();
+             Console.WriteLine("Transaction failed, Rolled back.");
+             Console.WriteLine("Error: " + ex.Message);
+         }
+     }
+ }

@@ -118,29 +118,115 @@ namespace StudentInformationSystem
 
         //---------------------------------------[TASK-7]
         //DATA INITIALIZATION
-        public static void AddValuesSisDb()
+        // Inserting student data [TASK-7]
+        public static void InsertStudentFromUserInput()
         {
-            // Inserting student data [TASK-7]
-            Database.InsertStudent(121, "Mary", "Jasmine", new DateTime(2000, 5, 15), "maryyy@gmail.com", "48091");
-            Database.InsertStudent(112, "Anikha", "Surendran", new DateTime(2002, 7, 25), "anikha@gmail.com", "91341");
+            Console.Write("Enter Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
 
-            // Inserting enrollment data [TASK-7]
-            Database.InsertEnrollment(11, 112, 13, new DateTime(2025, 1, 29));
+            Console.Write("Enter First Name: ");
+            string firstName = Console.ReadLine();
 
-            // Inserting payment data[TASK-7]
-            Database.InsertPayment(13, 121, 1500.00m, new DateTime(2025, 1, 14));
+            Console.Write("Enter Last Name: ");
+            string lastName = Console.ReadLine();
 
-            //Transaction management when enrolling students
-            Database.EnrollStudentWithPayment(121, 15, DateTime.Now, 2500.00m, DateTime.Now);
-            Console.ReadLine();
+            Console.Write("Enter Date of Birth (yyyy-mm-dd): ");
+            DateTime dob = DateTime.Parse(Console.ReadLine());
 
-            //Transaction management when assigning teachers
-            Database.AssignTeacherToCourseTransactional(58, 17);  // teacher_id, course_id
-            Console.ReadLine();
+            Console.Write("Enter Email: ");
+            string email = Console.ReadLine();
 
-            //Transaction management when recording payments
-            Database.RecordPaymentTransactional(104, 1300.00m, DateTime.Now); //student_id      
+            Console.Write("Enter Phone Number: ");
+            string phone = Console.ReadLine();
+
+            Database.InsertStudent(studentId, firstName, lastName, dob, email, phone);
         }
+
+        // Inserting enrollment data [TASK-7]
+        public static void InsertEnrollmentFromUserInput()
+        {
+            Console.Write("Enter Enrollment ID: ");
+            int enrollmentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Course ID: ");
+            int courseId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Enrollment Date (yyyy-mm-dd): ");
+            DateTime enrollmentDate = DateTime.Parse(Console.ReadLine());
+
+            Database.InsertEnrollment(enrollmentId, studentId, courseId, enrollmentDate);
+        }
+
+        // Inserting payment data[TASK-7]
+        public static void InsertPaymentFromUserInput()
+        {
+            Console.Write("Enter Payment ID: ");
+            int paymentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Amount: ");
+            decimal amount = decimal.Parse(Console.ReadLine());
+
+            Console.Write("Enter Payment Date (yyyy-mm-dd): ");
+            DateTime paymentDate = DateTime.Parse(Console.ReadLine());
+
+            Database.InsertPayment(paymentId, studentId, amount, paymentDate);
+        }
+
+        //Transaction management when enrolling students
+        public static void GetInputForEnrollmentWithPayment()
+        {
+            Console.Write("Enter Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Course ID: ");
+            int courseId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Enrollment Date (yyyy-mm-dd): ");
+            DateTime enrollmentDate = DateTime.Parse(Console.ReadLine());
+
+            Console.Write("Enter Payment Amount: ");
+            decimal amount = decimal.Parse(Console.ReadLine());
+
+            Console.Write("Enter Payment Date (yyyy-mm-dd): ");
+            DateTime paymentDate = DateTime.Parse(Console.ReadLine());
+
+            // Call transactional method
+            Database.EnrollStudentWithPayment(studentId, courseId, enrollmentDate, amount, paymentDate);
+        }
+
+        //Transaction management when assigning teachers
+        public static void GetInputForTeacherAssignment()
+        {
+            Console.Write("Enter Teacher ID: ");
+            int teacherId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Course ID: ");
+            int courseId = int.Parse(Console.ReadLine());
+
+            // Call transactional assignment method
+            Database.AssignTeacherToCourseTransactional(teacherId, courseId);
+        }
+
+        //Transaction management when recording payments
+        public static void GetInputForPaymentRecording()
+        {
+            Console.Write("Enter Student ID: ");
+            int studentId = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter Payment Amount: ");
+            decimal amount = decimal.Parse(Console.ReadLine());
+
+            Console.Write("Enter Payment Date (yyyy-MM-dd): ");
+            DateTime paymentDate = DateTime.Parse(Console.ReadLine());
+
+            Database.RecordPaymentTransactional(studentId, amount, paymentDate);
+        }       
 
         // UPDATE DETAILS [TASK-7]
         public static void UpdateStudentInfo()

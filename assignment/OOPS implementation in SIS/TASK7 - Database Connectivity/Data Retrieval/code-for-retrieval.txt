@@ -1,0 +1,99 @@
+        // Method to retrieve student data
+        public static void GetAllStudents()
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Students", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Console.WriteLine($"StudentID: {dr["student_id"]}, First Name: {dr["first_name"]}, Last Name: {dr["last_name"]}, " +
+                                          $"Date of Birth: {dr["date_of_birth"]}, Email: {dr["email"]}, Phone: {dr["phone_number"]}");
+                        PrintSeparator(1);
+                    }
+                }
+            }
+        }
+
+        // Method to retrieve course data
+        public static void GetAllCourses()
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Courses", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Console.WriteLine($"Course ID: {dr["course_id"]}, Course Name: {dr["course_name"]}, Credits: {dr["credits"]}, " +
+                                          $"Teacher ID: {dr["teacher_id"]}");
+                        PrintSeparator(1);
+                    }
+                }
+            }
+        }
+
+        // Method to retrieve enrollment data
+        public static void GetAllEnrollments()
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Enrollments", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Console.WriteLine($"Enrollment ID: {dr["enrollment_id"]}, Student ID: {dr["student_id"]}, " +
+                                          $"Course ID: {dr["course_id"]}, Enrollment Date: {dr["enrollment_date"]}");
+                        PrintSeparator(1);
+                    }
+                }
+            }
+        }
+
+        // Method to retrieve teachers data
+        public static void GetAllTeachers()
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Teacher", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Console.WriteLine($"TeacherID: {dr["teacher_id"]}, First Name: {dr["first_name"]}, Last Name: {dr["last_name"]}, " +
+                                          $"Email: {dr["email"]}");
+                        PrintSeparator(1);
+                    }
+                }
+            }
+        }
+
+        // Method to retrieve payments data
+        public static void GetAllPayments()
+        {
+            using (SqlConnection con = GetConnection())
+            {
+                if (con != null)
+                {
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM Payments", con);
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Console.WriteLine($"PaymentID: {dr["payment_id"]}, StudentID: {dr["student_id"]}, " +
+                                          $"Amount: {dr["amount"]}, Payment Date: {dr["payment_date"]}");
+                        PrintSeparator(1);
+                    }
+                }
+            }
+        }
