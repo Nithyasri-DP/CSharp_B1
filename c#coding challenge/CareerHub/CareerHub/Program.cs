@@ -9,8 +9,8 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        // Your existing commented block
-        /*
+       
+        
         Console.WriteLine("All Companies:");
         var companies = DatabaseManager.GetCompanies();
         foreach (var company in companies)
@@ -38,7 +38,7 @@ internal class Program
         {
             Console.WriteLine($"ApplicationID: {app.ApplicationID}, ApplicantID: {app.ApplicantID}, Cover Letter: {app.CoverLetter}");
         }
-        */
+        
 
         // Exceptions
         // 1. Email validation
