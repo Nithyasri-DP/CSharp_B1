@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\NotesB1\\CareerHub\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\databasemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\exception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\exception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\joblisting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\joblisting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\careerhub.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\careerhub.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\jobapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\jobapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|d:\\notesb1\\careerhub\\careerhub\\applicant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33E94C6E-EAF2-4CB7-9DC5-8322DDB0A443}|CareerHub\\CareerHub.csproj|solutionrelative:careerhub\\applicant.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Exception.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\Exception.cs",
+              "RelativeDocumentMoniker": "CareerHub\\Exception.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\Exception.cs",
+              "RelativeToolTip": "CareerHub\\Exception.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAACIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:32:38.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DatabaseManager.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\DatabaseManager.cs",
+              "RelativeDocumentMoniker": "CareerHub\\DatabaseManager.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\DatabaseManager.cs",
+              "RelativeToolTip": "CareerHub\\DatabaseManager.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAsAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T06:25:52.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CareerHub",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\CareerHub.csproj",
+              "RelativeDocumentMoniker": "CareerHub\\CareerHub.csproj",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\CareerHub.csproj",
+              "RelativeToolTip": "CareerHub\\CareerHub.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-09T05:51:09.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "JobApplication.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\JobApplication.cs",
+              "RelativeDocumentMoniker": "CareerHub\\JobApplication.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\JobApplication.cs",
+              "RelativeToolTip": "CareerHub\\JobApplication.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:52:35.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Applicant.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\Applicant.cs",
+              "RelativeDocumentMoniker": "CareerHub\\Applicant.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\Applicant.cs",
+              "RelativeToolTip": "CareerHub\\Applicant.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:52:14.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Company.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\Company.cs",
+              "RelativeDocumentMoniker": "CareerHub\\Company.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\Company.cs",
+              "RelativeToolTip": "CareerHub\\Company.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:51:55.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "JobListing.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\JobListing.cs",
+              "RelativeDocumentMoniker": "CareerHub\\JobListing.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\JobListing.cs",
+              "RelativeToolTip": "CareerHub\\JobListing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:51:36.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\NotesB1\\CareerHub\\CareerHub\\Program.cs",
+              "RelativeDocumentMoniker": "CareerHub\\Program.cs",
+              "ToolTip": "D:\\NotesB1\\CareerHub\\CareerHub\\Program.cs",
+              "RelativeToolTip": "CareerHub\\Program.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAQwDwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T05:48:10.068Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
