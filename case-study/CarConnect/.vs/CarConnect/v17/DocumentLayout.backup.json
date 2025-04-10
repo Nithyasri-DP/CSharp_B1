@@ -1,0 +1,122 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CarConnect\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9306BC2B-0EEA-45DE-B16B-18D94D24157E}|CarConnectTest\\CarConnectTest.csproj|d:\\carconnect\\carconnecttest\\testingcarconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9306BC2B-0EEA-45DE-B16B-18D94D24157E}|CarConnectTest\\CarConnectTest.csproj|solutionrelative:carconnecttest\\testingcarconnect.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9306BC2B-0EEA-45DE-B16B-18D94D24157E}|CarConnectTest\\CarConnectTest.csproj|d:\\carconnect\\carconnecttest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9306BC2B-0EEA-45DE-B16B-18D94D24157E}|CarConnectTest\\CarConnectTest.csproj|solutionrelative:carconnecttest\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|d:\\carconnect\\carconnect\\entity\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|solutionrelative:carconnect\\entity\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|d:\\carconnect\\carconnect\\dao\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|solutionrelative:carconnect\\dao\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|d:\\carconnect\\carconnect\\dao\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|solutionrelative:carconnect\\dao\\authenticationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|d:\\carconnect\\carconnect\\entity\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0A0E07EE-E67B-4054-BF2D-FABE0292E634}|CarConnect\\CarConnect.csproj|solutionrelative:carconnect\\entity\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TestingCarConnect.cs",
+              "DocumentMoniker": "D:\\CarConnect\\CarConnectTest\\TestingCarConnect.cs",
+              "RelativeDocumentMoniker": "CarConnectTest\\TestingCarConnect.cs",
+              "ToolTip": "D:\\CarConnect\\CarConnectTest\\TestingCarConnect.cs*",
+              "RelativeToolTip": "CarConnectTest\\TestingCarConnect.cs*",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAuwF4AAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T22:59:37.535Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\CarConnect\\CarConnectTest\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "CarConnectTest\\UnitTest1.cs",
+              "ToolTip": "D:\\CarConnect\\CarConnectTest\\UnitTest1.cs",
+              "RelativeToolTip": "CarConnectTest\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T22:43:39.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "D:\\CarConnect\\CarConnect\\entity\\Vehicle.cs",
+              "RelativeDocumentMoniker": "CarConnect\\entity\\Vehicle.cs",
+              "ToolTip": "D:\\CarConnect\\CarConnect\\entity\\Vehicle.cs",
+              "RelativeToolTip": "CarConnect\\entity\\Vehicle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T01:43:55.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "VehicleService.cs",
+              "DocumentMoniker": "D:\\CarConnect\\CarConnect\\dao\\VehicleService.cs",
+              "RelativeDocumentMoniker": "CarConnect\\dao\\VehicleService.cs",
+              "ToolTip": "D:\\CarConnect\\CarConnect\\dao\\VehicleService.cs",
+              "RelativeToolTip": "CarConnect\\dao\\VehicleService.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAuwMkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T07:24:44.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AuthenticationService.cs",
+              "DocumentMoniker": "D:\\CarConnect\\CarConnect\\dao\\AuthenticationService.cs",
+              "RelativeDocumentMoniker": "CarConnect\\dao\\AuthenticationService.cs",
+              "ToolTip": "D:\\CarConnect\\CarConnect\\dao\\AuthenticationService.cs",
+              "RelativeToolTip": "CarConnect\\dao\\AuthenticationService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T17:09:55.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "D:\\CarConnect\\CarConnect\\entity\\Admin.cs",
+              "RelativeDocumentMoniker": "CarConnect\\entity\\Admin.cs",
+              "ToolTip": "D:\\CarConnect\\CarConnect\\entity\\Admin.cs",
+              "RelativeToolTip": "CarConnect\\entity\\Admin.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBIAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T01:44:50.575Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
