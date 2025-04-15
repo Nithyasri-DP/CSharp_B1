@@ -1,9 +1,11 @@
-﻿function evaluateMarks() {
+﻿function evaluateMarks()
+{
     var m1 = parseFloat(document.getElementById("mark1").value);
     var m2 = parseFloat(document.getElementById("mark2").value);
 
     // Validate input
-    if (isNaN(m1) || isNaN(m2)) {
+    if (isNaN(m1) || isNaN(m2))
+    {
         alert("Please enter valid numeric marks for both subjects.");
         return;
     }
@@ -13,7 +15,8 @@
     var grade = "";
 
     // Grade Evaluation (using switch)
-    switch (true) {
+    switch (true)
+    {
         case (avg >= 90):
             grade = "<b><i>Excellent (Grade A)</i></b>";
             break;
