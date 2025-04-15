@@ -1,0 +1,58 @@
+use SIS_DB;
+
+--1)STUDENTS TABLE
+
+CREATE TABLE Students 
+(
+    student_id INT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50),
+    date_of_birth DATE,
+    email VARCHAR(50) UNIQUE,
+    phone_number VARCHAR(15) UNIQUE
+);
+
+--creating teachers table secondly as the course table consists of foreign key
+--2)TEACHER TABLE
+
+CREATE TABLE Teacher 
+(
+    teacher_id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    email VARCHAR(100) UNIQUE
+);
+
+--3)COURSE TABLE
+
+CREATE TABLE Courses
+(
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    credits INT,
+    teacher_id INT,
+    FOREIGN KEY (teacher_id) REFERENCES Teacher (teacher_id)
+);
+
+--4)ENROLLMENTS TABLE
+
+CREATE TABLE Enrollments 
+(
+    enrollment_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT,
+    enrollment_date DATE,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    FOREIGN KEY (course_id) REFERENCES Courses(course_id)
+);
+
+--5)PAYMENTS TABLE
+
+CREATE TABLE Payments 
+(
+    payment_id INT PRIMARY KEY,
+    student_id INT,
+    amount DECIMAL(10,2),
+    payment_date DATE,
+    FOREIGN KEY (student_id) REFERENCES Students(student_id)
+);
