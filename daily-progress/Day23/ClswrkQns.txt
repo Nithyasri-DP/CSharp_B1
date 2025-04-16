@@ -1,0 +1,5 @@
+CLASSWORK QUESTIONS 
+
+1. Write a javascript function that takes a number and returns the square of it.
+ 
+2. Write a javascript function that takes 2 firstname and lastname as parameters and returns the fullname.

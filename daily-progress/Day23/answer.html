@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Function Examples</title>
+    <script>
+        function square(num) {
+            document.getElementById("squareResult").innerHTML = "The square of " + num + " is " + (num * num);
+        }
+
+        function fullname(fname, lname) {
+            document.getElementById("nameResult").innerHTML = "Full Name is " + fname + " " + lname;
+        }
+    </script>
+</head>
+<body>
+    <!-- Square Function -->
+    <h3>1. Square of a Number</h3>
+    <button onclick="square(3)">Click to Get Square of 3</button>
+    <p id="squareResult"></p>
+
+    <!-- Full Name Function -->
+    <h3>2. Display Full Name</h3>
+    <button onclick="fullname('Nithya', 'Sri')">Click to Show Full Name</button>
+    <p id="nameResult"></p>
+</body>
+</html>
